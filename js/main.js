@@ -231,6 +231,20 @@ function initCopyEmail() {
 }
 
 
+/* ---------- SMART EMAIL LINKS --------------------------------------------- */
+// Phones (touch screens): use a mailto: link, which opens the Gmail/Mail app
+// with a new message already addressed to you.
+// Computers: keep the Gmail website compose link (opens in a new browser tab).
+function initEmailLinks() {
+  if (!matchMedia("(pointer: coarse)").matches) return; // desktop: do nothing
+
+  document.querySelectorAll('a[href^="https://mail.google.com"]').forEach((link) => {
+    link.href = "mailto:farhanaslam4546@gmail.com";
+    link.removeAttribute("target"); // mailto should not open a new tab
+  });
+}
+
+
 /* ---------- 9. START-UP --------------------------------------------------- */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -248,4 +262,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initModal();
   initContactForm();
   initCopyEmail();
+  initEmailLinks();
 });
