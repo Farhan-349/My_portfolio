@@ -1,0 +1,194 @@
+<!-- ==========================================================================
+     index.html - the single page of the portfolio. Page order:
+     loader > nav > hero > about > education > skills > projects > journey
+     > resume > contact > footer > modal > scripts.
+     Skills, project cards and goals are built by js/projects.js (edit there).
+     ========================================================================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M Farhan Aslam | BSCS Student & Aspiring Web Developer</title>
+<link rel="preload" as="image" href="assets/images/profile.jpg">
+<meta name="description" content="Portfolio of M Farhan Aslam, BSCS student at the University of Sargodha, aspiring DevOps engineer and web developer.">
+
+  <!-- Google Fonts: Inter (body text) and Space Grotesk (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- All styling lives in one file -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Small page-wide helpers: loading screen, scroll bar, custom cursor -->
+  <div id="loader" aria-hidden="true"><span>MFA</span></div>
+<div id="progress"></div>
+<div id="cursor" aria-hidden="true"></div>
+
+
+  <!-- NAVIGATION: sticky glass bar; the hamburger button shows on phones -->
+  <header class="nav glass">
+  <a href="#home" class="logo">M<span>.</span>Farhan</a>
+  <button id="menuBtn" class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
+  <nav id="menu" aria-label="Main">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a>
+    <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+
+  <!-- MAIN CONTENT: every section below is one nav link target (matching id) -->
+  <main>
+
+  <!-- HERO: intro text, buttons, profile photo and the 3D canvas (js/three-scene.js) -->
+  <section id="home" class="hero">
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="container hero-copy">
+    <p class="eyebrow">Hello, I'm</p>
+    <h1>M <span class="grad">Farhan Aslam</span></h1>
+    <h2>Building Digital Experiences Through Code &amp; Creativity.</h2>
+    <p class="sub">BSCS Student | Aspiring DevOps Engineer | Aspiring Web Developer | Python Programmer | AI Enthusiast</p>
+    <p class="muted">Passionate about building modern websites, solving problems through programming, and exploring emerging technologies.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">Explore My Work</a>
+      <a class="btn" href="assets/M-Farhan-Aslam-CV.pdf" download>Download CV</a>
+      <a class="btn" href="#contact">Contact Me</a>
+    </div>
+  </div>
+  <figure class="avatar"><img src="assets/images/profile.jpg" width="480" height="480" alt="Portrait of M Farhan Aslam"></figure>
+  <a href="#about" class="scroll-ind" aria-label="Scroll to About"><span></span></a>
+</section>
+
+
+  <!-- ABOUT: short introduction plus five role cards -->
+  <section id="about" class="container">
+  <h2 class="title reveal">About <span class="grad">Me</span></h2>
+  <div class="two reveal">
+    <div class="glass card">
+      <p>I am a BS Computer Science student at the University of Sargodha with a strong interest in DevOps, frontend web development, Python programming, artificial intelligence, and freelancing.</p>
+      <p>I enjoy learning new technologies, solving problems, and turning ideas into practical digital solutions. I am continuously developing my technical skills and building a strong foundation for a professional career in web development.</p>
+      <p class="muted">Based in Sargodha, Pakistan.</p>
+    </div>
+    <div class="grid mini">
+      <div class="glass card"><b>Computer Science Student</b></div>
+      <div class="glass card"><b>Aspiring DevOps Engineer</b></div>
+      <div class="glass card"><b>Aspiring Web Developer</b></div>
+      <div class="glass card"><b>Python Programmer</b></div>
+      <div class="glass card"><b>AI Enthusiast</b></div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- EDUCATION: vertical timeline (the glowing line is drawn in CSS) -->
+  <section id="education" class="container">
+  <h2 class="title reveal">Education <span class="grad">Timeline</span></h2>
+  <ol class="timeline">
+    <li class="reveal glass card"><h3>BS Computer Science</h3><p>University of Sargodha</p><p class="muted">3rd Semester, In Progress</p><span class="tag">CGPA: 3.73</span></li>
+    <li class="reveal glass card"><h3>Intermediate</h3><p class="muted">Completed</p><span class="tag">75% Marks</span></li>
+    <li class="reveal glass card"><h3>Matriculation</h3><p class="muted">Completed</p><span class="tag">95% Marks</span></li>
+  </ol>
+</section>
+
+
+  <!-- SKILLS: the cards are generated by JavaScript from the SKILLS list -->
+  <section id="skills" class="container">
+  <h2 class="title reveal">Technical <span class="grad">Skills</span></h2>
+  <p class="muted reveal">Honest snapshot of what I use and am still learning.</p>
+  <div class="grid skills" id="skillGrid"></div>
+</section>
+
+
+  <!-- PROJECTS: cards generated from PROJECTS in js/projects.js.
+       Real projects have no buttons until you add real links. -->
+  <section id="projects" class="container">
+  <h2 class="title reveal">Projects</h2>
+  <p class="muted reveal">Academic projects are from my CV. Sample / concept projects are design demonstrations, not verified completed work.</p>
+  <div class="grid projects" id="projectGrid"></div>
+</section>
+
+
+  <!-- LEARNING JOURNEY and CAREER OBJECTIVES (goal cards built by JavaScript) -->
+  <section id="journey" class="container">
+  <h2 class="title reveal">Learning <span class="grad">Journey</span></h2>
+  <div class="glass card reveal"><p>I am building my foundation through university coursework, Python and web projects, and self-learning in DevOps tools. This section is ready for future internships, certifications and achievements once they are verified.</p></div>
+  <h3 class="sub-title reveal">Career Objectives</h3>
+  <div class="grid goals" id="goalGrid"></div>
+</section>
+
+
+  <!-- RESUME: both buttons use the PDF at assets/M-Farhan-Aslam-CV.pdf -->
+  <section id="resume" class="container">
+  <h2 class="title reveal">Resume / <span class="grad">CV</span></h2>
+  <div class="glass card cv reveal">
+    <div class="pdf" aria-hidden="true">PDF</div>
+    <div><h3>M-Farhan-Aslam-CV.pdf</h3><p class="muted">My academic background, skills and projects in one document.</p>
+      <div class="btns"><a class="btn primary" href="assets/M-Farhan-Aslam-CV.pdf" target="_blank" rel="noopener">View CV</a>
+      <a class="btn" href="assets/M-Farhan-Aslam-CV.pdf" download>Download CV</a></div></div>
+  </div>
+</section>
+
+
+  <!-- CONTACT: your details on the left, validated form on the right.
+       Sending is controlled by js/config.js (EmailJS now, CRM later). -->
+  <section id="contact" class="container">
+  <h2 class="title reveal">Get In <span class="grad">Touch</span></h2>
+  <div class="two">
+    <div class="glass card reveal">
+      <p>Open to freelance work, learning opportunities and collaboration.</p>
+      <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=farhanaslam4546@gmail.com" target="_blank" rel="noopener noreferrer">farhanaslam4546@gmail.com</a>
+        <button type="button" id="copyEmail" class="tag" style="cursor:pointer;background:none">Copy</button></p>
+      <p><a href="https://github.com/Farhan-349" target="_blank" rel="noopener noreferrer">GitHub: Farhan-349</a></p>
+      <p><a href="https://www.linkedin.com/in/m-farhan-aslam-a226a6407" target="_blank" rel="noopener noreferrer">LinkedIn: M Farhan Aslam</a></p>
+      <p class="muted">Sargodha, Pakistan</p>
+    </div>
+    <form id="form" class="glass card reveal" novalidate>
+      <label>Name<input name="from_name" required autocomplete="name"></label>
+      <label>Email<input name="reply_to" type="email" required autocomplete="email"></label>
+      <label>Subject<input name="subject" required></label>
+      <label>Message<textarea name="message" rows="5" required></textarea></label>
+      <button class="btn primary" id="sendBtn" type="submit">Send Message</button>
+      <p id="formMsg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+
+  <!-- FOOTER: description, quick links, social links, auto-updating year -->
+  <footer class="glass">
+  <div class="container foot">
+    <div><b>M Farhan Aslam</b><p class="muted">BSCS student building modern, practical web experiences.</p></div>
+    <nav aria-label="Footer"><a href="#home">Home</a> <a href="#about">About</a> <a href="#projects">Projects</a> <a href="#contact">Contact</a></nav>
+    <div><a href="https://github.com/Farhan-349" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://www.linkedin.com/in/m-farhan-aslam-a226a6407" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://mail.google.com/mail/?view=cm&fs=1&to=farhanaslam4546@gmail.com" target="_blank" rel="noopener noreferrer">Email</a></div>
+  </div>
+  <p class="copy muted">&copy; <span id="year"></span> M Farhan Aslam. All rights reserved.</p>
+</footer>
+
+  <!-- Back-to-top button (appears after scrolling down) -->
+  <button id="toTop" class="top" aria-label="Back to top">&uarr;</button>
+
+
+  <!-- MODAL: popup filled by openModal() for sample projects -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" hidden>
+  <div class="glass card m-box"><button id="mClose" class="m-close" aria-label="Close">&times;</button>
+  <span class="tag warn">Sample / Concept Project</span><h3 id="mTitle"></h3><p id="mDesc"></p><ul id="mList"></ul><p id="mTech" class="muted"></p></div>
+</div>
+
+
+  <!-- LIBRARIES (CDN): Three.js = 3D, GSAP + ScrollTrigger = animations, EmailJS = contact form -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+
+  <!-- OUR SCRIPTS. Order matters: config first, main.js last -->
+  <script src="js/config.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/three-scene.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
